@@ -3,4 +3,5 @@ from .views import homepage, homefilmes
 
 urlpatterns = [
     path('', homepage),
+    path('filmes/', homefilmes),
 ]

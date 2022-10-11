@@ -5,5 +5,13 @@
 {% endblock%}
 
 {% block content%}
-<h1>Essa é a Home Filmes</h1>
+<div class='py-25'>
+   <h1>Essa é a Home Filmes</h1>
+   {% for filme in lista_filmes %}
+   <hr>
+   <p>{{filme}}</p>
+   <p>{{ file.descricao }}</p>
+   <img src="{{ filme.thumb.url }}">
+   {% endfor %}
+</div>
 {% endblock %}
