@@ -22,3 +22,9 @@ class HomeFilmes(ListView):
 class Detalhesfilme(DetailView):
     template_name = "detalhesfilmes.html"
     model = Filme
+
+    def get(self, request, *args, **kwargs):
+        filme = self.get_object()
+        filme.visualizacoes += 1
+        filme.save()
+        return super() .get(request, *args, **kwargs)
