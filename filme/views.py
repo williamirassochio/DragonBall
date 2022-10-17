@@ -28,3 +28,4 @@ class Detalhesfilme(DetailView):
         filme.visualizacoes += 1
         filme.save()
         return super() .get(request, *args, **kwargs)
+    
