@@ -5,6 +5,7 @@
             <img class="w-4/12" src="{% static 'images/logosuperior.png' %}">
         </a>
     </div>
+    {% if user.is_authenticated%}
     <div class="w-6/12 flex flex-nowrap justify-end">
         <div class="mr-2">
             <form method='get' action='{% url 'filme:pesquisafilme' %}'>
@@ -27,4 +28,5 @@
             </a>
         </div>
     </div>
+    {% endif %}
 </nav>
