@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5s&480@6&o1c51_v(*q*)gfqo3qyw9ai9ju&bleidn=ajmw)n+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','db-lutas.herokuapp.com']
 
 
 # Application definition
