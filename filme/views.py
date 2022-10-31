@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from .models import Filme
 from .forms import CriarContaForm
 from django.views.generic import TemplateView, ListView, DetailView, FormView
@@ -59,3 +59,10 @@ class Paginaperfil(LoginRequiredMixin, TemplateView):
 class Criarconta(FormView):
     template_name = "criarconta.html"
     form_class = CriarContaForm
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('filme:login')
