@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from .models import Filme, Usuario
 from .forms import CriarContaForm, FormHomepage
-from django.views.generic import TemplateView, ListView, DetailView, FormView
+from django.views.generic import TemplateView, ListView, DetailView, FormView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
    # def homepage(request):
@@ -23,8 +23,7 @@ class Homepage(FormView):
         if usuarios:
             return reverse("filme:login")
         else:
-            return reserve("filme:criarconta")
-
+            return reverse("filme:criarconta")
 
 #def homefilmes(request):
     #context = {}
@@ -60,8 +59,13 @@ class Pesquisafilme(LoginRequiredMixin, ListView):
         else:
             return None
 
-class Paginaperfil(LoginRequiredMixin, TemplateView):
+class Paginaperfil(LoginRequiredMixin, UpdateView):
     template_name = "editarperfil.html"
+    model = Usuario
+    fields = ['first_name', 'last_name', 'email']
+
+    def get_success_url(self):
+        return reverse('filme:homefilmes')
 
 
 class Criarconta(FormView):
